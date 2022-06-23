@@ -1,117 +1,63 @@
-# Computer Vision Web Scaffold
-A scaffold for deploying dockerized flask applications.
+# AI Animal Detection
+An AI project made by AI Camp students.
 
-If you have any questions, feel free to open an issue on [Github](https://github.com/organization-x/omni/issues).
+### Product Spec
+#### Overview:
+ We are going to make a system that takes an image of an animal, identifies the animal, and determines whether it is endangered or not.
+#### Our Goals:
+Sections to train AI: Endangered (E) and Non-Endangered (NE) animals
+Identifying the animal name (these are the animals we can identify):
+Dogs, Birds, Cats, Pandas, Polar Bear, Lizards, Tiger, Zebras, Monkeys, Horses, Pigs, Cows, Sheep, Elephants, and Crocodiles/Alligators
 
-### Video Guide
-[![Deploy a Web Project with Flask](https://img.youtube.com/vi/JUb-PpejA7w/0.jpg)](https://youtu.be/JUb-PpejA7w "Deploy a Web Project with Flask")
+Let people know the status of endangerment in 1 way:
+Add a little description (ex. We think this is an endangered Panda with 99% confidence.)
 
-This guide covers how you can quickly deploy most projects with the [Flask](https://flask.palletsprojects.com/) framework and our omni scaffold.
+#### Why we are making this:
+	
+ As a group, we have a strong liking for animals. Therefore, we wanted to integrate that into our product. It is important to spread awareness of endangered animals, so we decided to include it as part of our product also. Additionally, having this component makes it a better product in terms of usefulness. This kind of software can use drones to determine whether there are endangered animals. Another example of applying this software to help people is during their hikes or outdoor activity. If they see an animal and wonder if it is endangered or not, they can use our software.
 
-### Quickstart Guide for Local Development
+#### Basic Outline: 
 
-First clone this repository through 
+First, we will add multiple images of the animals that we have included above and labels them. This will act as our data set, which we will use to train the AI to recognize the animals. Once this data set is finalized, we will start using these images for the AI to look for. When the AI is trained well, we will begin teaching it to identify endangerment status. After the AI has been trained well in endangerment statuses, we will start working on the website and website design. 
+The end result is an AI system that will determine the type of animal in an image as well as its endangerment level. It will let the user know the animal type and a description of the animal’s status, along with how confident it is. Additionally, it will also identify whether the animal is endangered or not endangered. It will then display this to the user in the description. 
 
-`https://github.com/organization-x/omni`
+#### What an MVP Looks Like:
 
-cd into the `/app` folder
+Our MVP at least identifies the type of animal. This is the most important step in completing our goal. This is because to identify the endangerment status of an animal we need to establish which animal it is. Once the animal is identified, the MVP includes telling the user what type of animal it is.
 
-`python3 -m pip install -r requirements.txt`
+#### Type of ML problem:
+	
+ This product is trying to use Python and YOLO to recognize animals using computer vision AI software. The type of computer vision we are using is object detection; the user provides an image and with the program, we detect the animal in the image. This animal is the so-called “object” we are trying to detect.
+Tech Stack:
+#### We used:
+##### YOLO
 
-edit line 29 the `main.py` file to either the URL of the cocalc server you are on or `localhost` if you are running it on your own PC
+To train the model to recognize specific animals
 
-Then, clone ultralytics yolov5 in the app folder, by running 
+To get the AI software that includes confidence
 
-`git clone https://github.com/ultralytics/yolov5`
-`pip install -r yolov5/requirements.txt`
+##### Google
 
-Run
+To find images to train the model to recognize certain animals
 
- `python3 -m main`
+To find the endangerment status of the animals
 
-to start the server on local, most changes while developing will be picked up in realtime by the server
+To find python snippets to assist during the coding process
 
-### Quickstart Guide for Local Deployment
+##### Cocalc
 
-Make sure docker is installed on your system. Look that up if you don't know what that means.
+To write the program and execute the python code
 
-cd into the root director of the repo then run 
+To train the model
 
-`docker build -t omni .`
+#### Potential Roadblocks:
 
-once built, run
+##### Confusing animals with other animals
 
-`docker run -d -p 9000:80 --restart=unless-stopped --name omni omni`
+Adding more data/images for the computer to train with so it becomes more familiar with the animal
 
-you should then be able to see the `omni` container running when you run 
+##### Image distortion
 
-`docker ps -a`
-
-if it seems to be stuck (i.e. constantly listed as `Restarting`), something is wrong with the docker image or code inside causing it to repeatedly fail.
-
-you can start debugging the project by running 
-
-`docker logs -f omni` 
-
-or
-
-`docker exec -it omni /bin/bash` for an interactive bash terminal (this option only works if the container is running and not stuck in a restart loop)
-
-### Common Issues
-
-`$'\r': command not found` when attempting to start docker container
-
-this is caused by the the `entrypoint.sh` script somehow having CLRF line endings instead of LF line endings.
-
-to fix this run
-
-`sed -i 's/\r$//' entrypoint.sh`
-
-### File Structure
-The files/directories which you will need to edit are **bolded**
-
-**DO NOT TOUCH OTHER FILES. THIS MAY RESULT IN YOUR PROJECT BEING UNABLE TO RUN**
-
-- .gitignore
-- config.py
-- Dockerfile
-- READMD.md
-- entrypoint.sh
-- nginx_host
-- host_config
-- app/
-     - **main.py**
-     - **best.pt** <- you will need to upload this yourself after cloning the repo when developing the site
-     - **requirements.txt**
-     - **utils.py**
-     - templates/
-          - **index.html**
-
-### How to upload best.pt to your file structure?
-Run 
-`cp ../path/to/best.pt best.pt`
-### best.pt ###
-The weights file - must upload if you are running file on coding center or are trying to deploy.
-### main.py ###
-Contains the main flask app itself.
-### requirements.txt ###
-Contains list of packages and modules required to run the flask app. Edit only if you are using additional packages that need to be pip installed in order to run the project.
-
-To generate a requirements.txt file you can run
-
-`pip list --format=freeze > app/requirements.txt`
-
-the requirements.txt file will then be updated. Keep in mind: some packages you install on one operating system may not be available on another. You will have to debug and resolve this yourself if this is the case.
-### static/ ###
-Contains the static images, CSS, & JS files used by the flask app for the webpage. You will need to create this and put files in it. Place all your images used for your website in static/images/ so that you can then reference them in your html files.
-### utils.py ###
-Contains common functions used by the flask app. Put things here that are used more than once in the flask app.
-### templates/ ###
-Contains the HTML pages used for the webpage. Edit these to fit your project. index.html is the demo page.
-### Files used for deployment ###
-`config.py`
-`Dockerfile`
-`entrypoint.sh`
-`nginx_host`
-`host_config`
-**Only modify `host_config`. Do not touch the other files.**
+Let the user know the image is distorted/not high enough quality
+The user inputs an image with animals that weren’t included
+Teach it to say “Animal Not Supported” and add a message stating which animals the computer can identify.
