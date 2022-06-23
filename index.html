@@ -1,0 +1,432 @@
+<div id="main">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300&family=Prompt&family=Staatliches&display=swap');
+    /* CSS */
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-30:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+  </style>
+</div>
+<!--Our AI system -->
+
+<div id="about">
+  <div id="main" style="width: 100%; height: 882px;background-color: #D7EBBA; text-align: center;">
+    <div id="Main_banner" style=
+    "height: 33.910387%; position: relative; text-align: center;">
+      <img src=
+      "https://cdn.discordapp.com/attachments/887489763257503754/989269117368426587/Project_banner.png"
+      style="width: 100%; height: 100%;">
+      <div>
+        <div class="centered" style=
+        "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 80px; font-family: 'Staatliches', cursive;">
+          AI Animal Detection
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div style=
+      "direction: ltr; display: inline; background-color: #DAF1FE; width: 100%; height: 100%; border-radius: 30px;">
+        <div id="usec" style=
+        "width: 69.6984127%; height: 50.305499%; border-radius: 30px; float:left;">
+          <!-- centered button -->
+
+          <div class="centered" style=
+          "position: absolute; top: 400px; left: 50%; transform: translate(-50%, -50%); font-size: 30px; font-family: 'Assistant', sans-serif;">
+            Upload
+          </div>
+
+          <div class="centered" style=
+          "position: absolute; top:575px; left: 50%; transform: translate(-50%, -50%); font-size: 20px; font-family: 'Assistant', sans-serif;">
+            <a class="mb-0" id='seefood_button'>
+            <form enctype="multipart/form-data" id='seefood_form' method="post"
+            name="seefood_form">
+              <input hidden="" id="seefood_input_field" name="file" onchange=
+              "this.form.submit();" type="file">
+            </form>
+            <button class="button-30" href="#" role="button" target="_blank">
+            <!--                                     <i class="fas fa-camera pr-2 left" aria-hidden="true"></i>-->
+            Upload</button> 
+            <!--            <button class="button-30" role="button"> Upload</button> --></a>
+          </div>
+        </div>
+
+        <div id="description">
+          <div class="centered" style=
+          "position: absolute; top: 800px; left: 50%; transform: translate(-50%, -50%); font-size: 30px; font-family: 'Assistant', sans-serif;">
+            Description:
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1" name=
+    "viewport">
+    <meta content="" name="description">
+    <link crossorigin="anonymous" href=
+    "https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity=
+    "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    rel="stylesheet">
+    <link href=
+    "{{ url_for('static', filename='plugins/fontawesome/css/all.css')}}" rel=
+    "stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css')}}" rel=
+    "stylesheet">
+  </div>
+  <!--OUR AI SYSTEM-->
+  <div id="system" style="background-color:#D7EBBA;">
+    <p style=
+    "font-family:Staatliches;text-align:center;font-size:96px;background-color:#D7EBBA;margin:0;padding:1">
+      Our AI System
+    </p>
+
+    <hr align="center" color="black" size="2" width="80%">
+
+    <pre style=
+    "font-family:Assistant;font-size:20px;text-align:center;background-color:#DAF1FE;margin-left:20%;margin-right:20%;border-radius:30px;">
+
+   
+   <img alt="predictions" src=
+"https://cocalc13.ai-camp.dev/1d08e80f-5b5f-4f94-b8c4-4b1717e45ec2/raw/SC22-BatchA-dynamite-duelers/yolov5/runs/train/ver5/val_batch1_pred.jpg"
+style="display:block;margin-left:auto;margin-right:auto;width:70%">
+ Predictions of tigers, birds, and bears.
+    </pre>
+
+    <pre style=
+    "font-family:Prompt;font-size:40px;background-color:#DAF1FE;text-align:center;margin-left:5%;margin-right:5%;border-radius:30px;">
+     What does our system do?</pre>
+
+    <pre style=
+    "font-family:Assistant;font-size:20px;background-color:#DAF1FE;text-align:center;margin-left:5%;margin-right:5%;border-radius:30px;">
+
+      
+      Choose the upload button to upload a file. Using this file, we will identify what animal
+      is in the image, and the probability of our prediction being correct. This probability
+      is also known as a confidence levels. Next to the image, we will also display the
+      endangerment status of the animal that we have matched it to. Our list of accepted
+      animals is as follows:
+      <br><b>Alligators, Bears, Cats, Cows, Crocodiles, Dogs, Elephants, Horses, Lions, Lizards, Monkeys<br>
+      Pandas, Pigs, Sheep, Zebras, Birds, and Tigers</b>
+    </pre>
+
+    <pre style=
+    "font-family:Assistant;font-size:20px;background-color:#DAF1FE;text-align:center;margin-left:5%;margin-right:5%;border-radius:30px;">
+
+    
+Our system does this by asking you to upload an image. This image can be of any one or more of 
+the above animals. The AI system will run it through the database and look for a match. It will then
+return the name of the animal, and how confident it is. Then, the AI will use its predictions to look 
+an endangerment status match. All of the results will be displayed to you in a matter of seconds!
+         
+Sometimes, however, the image prediction may be wrong. This could be because the AI system got 
+confused on what animal it was. Or, the AI system did not have data on that animal. Another reason 
+that this could occur is because there wasn't enough data on a certain animal. Though we tried 
+our best to have equal data distribution, there are still some flaws.
+         
+    </pre>
+
+    <pre>
+    
+    </pre>
+  </div>
+  <!-- motivations -->
+  <!-- resources -->
+
+  <h1 style=
+  "font-family:Staatliches;text-align:center;font-size:96px;background-color:#D7EBBA">
+    Resources
+  </h1>
+
+  <pre style=
+  "font-family:Assistant;font-size:20px;background-color:#D7EBBA;text-align:center">
+
+<br>
+Here are some of the resources that we used 
+throughout the creation of this project:
+
+<img alt="cocalc" src=
+"https://upload.wikimedia.org/wikipedia/en/thumb/7/72/CoCalc_Logo.png/280px-CoCalc_Logo.png"
+style=
+"display:block;margin-left:auto;margin-right:auto;width:25%;border-radius:25px">
+<br>
+We utilized CoCalc for the majority of our programming and training the AI. 
+We used both CPU and GPU servers while making this project.
+
+<img alt="colab" src=
+"https://repository-images.githubusercontent.com/304608186/0b06d300-5dc1-11eb-9a33-97a745c89ceb"
+style="border-radius:25px">
+<br>
+When our Cocalc servers were down, we used Google Colab for additional training 
+for the model.
+
+<img alt="kaggle" src="https://miro.medium.com/max/846/0*EcNt1Y_p5njLMX3F"
+style="width:35%;border-radius:25px">
+<br>
+To gather some of the images for our dataset, we used pre-made 
+datasets that we found on Kaggle.
+
+<img alt="serpapi" src="https://www.eff.org/files/2019/11/22/serpapi-logo.png"
+style="width:35%">
+<br>
+In addition to Kaggle, our team used SerpApi to web-scrape additional 
+images for the dataset.
+
+<img alt="roboflow" src=
+"https://bookface-images.s3.amazonaws.com/logos/e0899b2bf94a53184d43ff406b2c19846280fd8e.png?1630010761"
+style="width:35%;border-radius:25px">
+<br>
+Roboflow was used to compile all of our images and finalize the 
+multiple versions of our dataset.
+
+<img alt="wandb" src=
+"https://raw.githubusercontent.com/wandb/assets/main/wandb-logo-yellow-dots-black-wb.svg"
+style="width:35%">
+<br>
+Weights and Biases was used to evaluate the model during training by 
+generating graphs and matrices to display the model's performance.
+
+
+
+<!-- our process -->
+  </pre>
+  <div id="main">
+  </div>
+
+  <pre>
+</pre>
+<div style="text-align:center;">
+  <div id="about">
+    <h1 style="font-family:Staatliches;text-align:center;font-size:96px;">
+      Process
+    </h1>
+  </div>
+
+  <pre>
+  </pre>
+  <body style="background-color:#D7EBBA">
+    <p style=
+    "font-family:Assistant;font-size:20px;margin-left:5%;margin-right:5%;background-color:#DAF1FE;border-radius: 30px;text-align:center">
+      1)Find twenty species of animal using images from Kaggle and web
+      scraping.
+      <br>
+      -&gt;
+      <br>
+      2)Use Roboflow to annotate and label the species of animals in the image.
+      <br>
+      -&gt;
+      <br>
+      3) We utilized Cocalc for our programming of the AI to identify animals,
+      <br>
+      using CPU and GPU servers.
+      <br>
+      -&gt;
+      <br>
+      4) Using Weights&amp;Biases, we tested our images, and took note of
+      roadblocks, such as
+      <br>
+      confusion between alligators and crocodiles, on confusion matrices.
+      <br>
+      -&gt;
+      <br>
+      5) Using the data, we eliminated potential roadblocks, such as the
+      alligator and crocodile
+      <br>
+      identification and improved increasing confidence in identifying other
+      species of animals.
+      <br>
+      -&gt;
+      <br>
+      6) We then fixed the roadblocks, and improved our AI to identify animals
+      in an image
+      <br>
+      with increased accuracy and more confidence.
+    </p>
+</div>
+    <!--Upload page-->
+
+    <div id="main">
+      <div style="background-color:#D7EBBA; text-align:center">
+        <!--challenges -->
+
+        <div id="about">
+          <h1 style=
+          "font-family:Staatliches;text-align:center;font-size:96px;">
+            Challenges
+          </h1>
+
+          <hr align="center" color="black" size="2" width="80%">
+
+          <h3 style=
+          "font-family:Prompt;text-align:center;font-size:40px;background-color:#DAF1FE;margin-left:5%;margin-right:5%;border-radius: 30px;">
+            Our Challenges and Solutions
+          </h3>
+
+          <p style=
+          "font-family:Assistant;font-size:20px;margin-left:2%;margin-right:2%;background-color:#DAF1FE;border-radius: 30px;text-align:center">
+            Challenge: Our data sets were not giving us precise results
+            <br>
+            Solution: We modified our data set in Roboflow by adding/deleting
+            images, and
+            <br>
+            managing the classes
+            <br>
+            Challenge: Yolov5 confusing Alligators and Crocodiles
+            <br>
+            Solution: We added more data to the
+            <br>
+            Alligators data set, and removed the Crocodile data set
+            <br>
+            Challenge: Our Colab and Cocalc servers were crashing very quickly
+            <br>
+            Solution: We asked our instructor for help, and decreased the size
+            of our data set
+          </p>
+
+          <pre>
+    </pre>
+        </div>
+      </div>
+      <!-- about us -->
+
+      <div style="background-color:#DAF1FE; text-align:center;">
+        <h1 style="font-family:Staatliches;text-align:center;font-size:96px;top: 4500px">
+          About Us
+        </h1>
+
+        <hr align="center" color="black" margins="0" padding="0" size="2"
+        width="100%">
+        <img src=
+        "https://cdn.discordapp.com/attachments/873687151127195708/989270643314917426/Screen_Shot_2022-06-22_at_1.48.08_PM.png">
+        <p>
+          Hi! My name is Annette and I am a rising Junior. I love to run, cook,
+          play guitar, and spend time with my friends and my dog! One of my
+          passions besides coding is spreading awareness about Orcas in
+          Captivity!
+        </p>
+        <img alt="Emerson" src=
+        "https://cdn-images-1.medium.com/max/1000/1*hoQzKkbadsAkmiYcHVnvOw.jpeg"
+        style="width:35%">
+        <p>
+          Hello! My name is Emerson and I am a rising freshman. I enjoy playing
+          soccer, running, writing, and watching Warriors games! I hope to
+          attend Stanford and major in either computer science or cognitive
+          science!
+        </p>
+        <img alt="Karisma" src=
+        "https://media.discordapp.net/attachments/788113132219400215/989240862972194887/unknown.png">
+        <p>
+          Hi! My name is Karisma, and I am a rising eighth grader. My favorite
+          computer-related things to do are code in Python, Java, and HTML! I
+          love to read, watch TV, hang out with my friends, eat pizza, and play
+          volleyball.
+        </p>
+        <img src=
+        "https://cdn.discordapp.com/attachments/887489763257503754/989270817915420743/Photo_on_6-22-22_at_13.png"
+        style="height:350px;left:50%;">
+        <p style="word-wrap: break-word;">
+          Hi, my name is Aditya. My hobbies include golf and coding. I am going
+          into 8th grade and I enjoy learning math. In the future, I hope I can
+          major in finance.
+        </p>
+        <img src=
+        "https://cdn.discordapp.com/attachments/830908873652568106/989271285320286308/ben_2.png">
+        <p>
+          Hi! My name is Ben. I am a rising tenth grader. Besides coding, I
+          enjoy swimming, playing piano, writing stories, and playing baseball
+          with my dog!
+        </p>
+        <img src="https://cdn.discordapp.com/attachments/915738433610211350/989580051303530506/IMG_2409.jpg"  width = 300 style="left:50%">
+        <p>
+          My name is Jake Rychlik and I am a rising sophomore , I like to play piano, skate and read.
+        </p>
+      </div>
+        <!-- Scripts -->
+        <!-- Main jQuery -->
+        <script src=
+        "{{url_for('static',filename='plugins/jquery/jquery.min.js')}}"></script>
+        
+        <script crossorigin="anonymous" integrity=
+        "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src=
+        "https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+        
+        <script src=
+        "{{url_for('static',filename='js/theme.js')}}"></script> 
+        <script>
+
+        // added to get upload with a button working
+        document.getElementById('seefood_button').addEventListener('click', openDialog);
+
+        function openDialog() {
+            document.getElementById('seefood_input_field').click();
+        }
+        </script> 
+        <script type="text/javascript">
+
+        $(document).ready(function() {
+            $("#spinner").bind("ajaxSend", function() {
+                $(this).show();
+            }).bind("ajaxStop", function() {
+                $(this).hide();
+            }).bind("ajaxError", function() {
+                $(this).hide();
+            });
+            // seefood_input_field
+            $('#seefood_button').click(function() {
+
+            });
+        });
+        </script>
+      </div>
+    </div>
+  </body>
+
+  <pre></pre>
+</div>
