@@ -50,7 +50,7 @@ To write the program and execute the python code
 
 To train the model
 
-#### Potential Roadblocks:
+#### Roadblocks:
 
 ##### Confusing animals with other animals
 
@@ -59,5 +59,11 @@ Adding more data/images for the computer to train with so it becomes more famili
 ##### Image distortion
 
 Let the user know the image is distorted/not high enough quality
+
 The user inputs an image with animals that weren’t included
+
 Teach it to say “Animal Not Supported” and add a message stating which animals the computer can identify.
+
+##### Styling The Website
+
+Using the web and our instructor as a resource to solve the problems
